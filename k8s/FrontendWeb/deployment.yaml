@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  namespace: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: web
+        image: clspracticecontainerregistry-d0gmgkhtc4g2fcfm.azurecr.io/degreedassessment-web:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: ApiSettings__BaseUrl
+          value: "http://api-service:8080" # This should match the service name and port of your API service
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "512Mi"
+          limits:
+            cpu: "500m"
+            memory: "1Gi"
+
