@@ -1,6 +1,6 @@
 # Build stage using the .NET SDK
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /src
+WORKDIR /src/BackendApi
 
 RUN pwd
 RUN ls -alh
