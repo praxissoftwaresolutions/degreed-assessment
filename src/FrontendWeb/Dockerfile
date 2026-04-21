@@ -8,7 +8,6 @@ RUN dotnet restore
 
 # Copy remaining source code and build
 COPY . .
-WORKDIR "/src/FrontendWeb"
 RUN dotnet build "FrontendWeb.csproj" -c Release -o /app/build
 
 # Publish the application
