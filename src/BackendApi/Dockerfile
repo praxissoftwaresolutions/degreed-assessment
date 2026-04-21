@@ -2,6 +2,9 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
+RUN pwd
+RUN ls -alh
+
 # Copy csproj and restore dependencies
 COPY ["BackendApi.csproj", "."]
 RUN dotnet restore
@@ -9,8 +12,6 @@ RUN dotnet restore
 # Copy remaining source code and build
 COPY . .
 WORKDIR "/src/BackendApi"
-RUN pwd
-RUN ls -alh
 RUN dotnet build "BackendApi.csproj" -c Release -o /app/build
 
 # Publish the application
