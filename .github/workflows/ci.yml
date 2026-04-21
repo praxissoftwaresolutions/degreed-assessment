@@ -36,7 +36,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: src/BackendApi
-          file: Dockerfile
+          file: src/BackendApi/Dockerfile
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_REPOSITORY }}:${{ github.run_id }}
 
@@ -44,6 +44,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: src/FrontendWeb
-          file: Dockerfile
+          file: src/FrontendWeb/Dockerfile
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_REPOSITORY }}:${{ github.run_id }}
