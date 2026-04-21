@@ -9,6 +9,8 @@ RUN dotnet restore
 # Copy remaining source code and build
 COPY . .
 WORKDIR "/src/BackendApi"
+RUN pwd
+RUN ls -alh
 RUN dotnet build "BackendApi.csproj" -c Release -o /app/build
 
 # Publish the application
