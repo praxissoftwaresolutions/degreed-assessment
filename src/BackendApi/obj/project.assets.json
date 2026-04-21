@@ -1215,11 +1215,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cls1\\gold_repos\\degreed-assessment\\BackendApi\\BackendApi.csproj",
+      "projectUniqueName": "C:\\Users\\cls1\\gold_repos\\degreed-assessment\\src\\BackendApi\\BackendApi.csproj",
       "projectName": "BackendApi",
-      "projectPath": "C:\\Users\\cls1\\gold_repos\\degreed-assessment\\BackendApi\\BackendApi.csproj",
+      "projectPath": "C:\\Users\\cls1\\gold_repos\\degreed-assessment\\src\\BackendApi\\BackendApi.csproj",
       "packagesPath": "C:\\Users\\cls1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cls1\\gold_repos\\degreed-assessment\\BackendApi\\obj\\",
+      "outputPath": "C:\\Users\\cls1\\gold_repos\\degreed-assessment\\src\\BackendApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
