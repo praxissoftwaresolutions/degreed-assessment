@@ -22,7 +22,7 @@ spec:
         - containerPort: 8080
         env:
         - name: ConnectionStrings__SqlDb
-          value: "Server=tcp:your-sql-server.database.windows.net,1433;Initial Catalog=your-db;Authentication=Active Directory Default;"
+          value: "Server=tcp:degreed-data.database.windows.net,1433;Initial Catalog=degreed-data;Authentication=Active Directory Default;"
         resources:
           requests:
             cpu: "250m"
@@ -30,16 +30,4 @@ spec:
           limits:
             cpu: "500m"
             memory: "1Gi"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: api-service
-  namespace: api-backend
-spec:
-  type: ClusterIP
-  selector:
-    app: csharp-api
-  ports:
-  - port: 80
-    targetPort: 8080
+
