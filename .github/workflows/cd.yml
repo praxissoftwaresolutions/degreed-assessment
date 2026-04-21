@@ -29,7 +29,8 @@ jobs:
         with:
           cluster-name: ${{ vars.AKS_CLUSTER_NAME }}
           resource-group: ${{ vars.AKS_RESOURCE_GROUP }}
-          
+          use-kubelogin: 'true' # This enables kubelogin automatically
+
       - name: List files for debugging
         run: |
           pwd
