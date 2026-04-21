@@ -29,6 +29,7 @@ jobs:
         with:
           cluster-name: ${{ vars.AKS_CLUSTER_NAME }}
           resource-group: ${{ vars.AKS_RESOURCE_GROUP }}
+          
       - name: List files for debugging
         run: |
           pwd
@@ -38,9 +39,9 @@ jobs:
         uses: azure/k8s-deploy@v4
         with:
           manifests: |
-            k8s/BackendApi/service.yml
-            k8s/FrontendWeb/service.yml
-            k8s/BackendApi/service-account.yml
-            k8s/BackendApi/deployment.yml
-            k8s/FrontendWeb/deployment.yml
+            k8s/BackendApi/service.yaml
+            k8s/FrontendWeb/service.yaml
+            k8s/BackendApi/service-account.yaml
+            k8s/BackendApi/deployment.yaml
+            k8s/FrontendWeb/deployment.yaml
             
