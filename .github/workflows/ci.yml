@@ -35,15 +35,15 @@ jobs:
       - name: Build and push API to ACR
         uses: docker/build-push-action@v4
         with:
-          context: .
-          file: src/BackendApi/Dockerfile
+          context: src/BackendApi
+          file: Dockerfile
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_REPOSITORY }}:${{ github.run_id }}
 
       - name: Build and push Web to ACR
         uses: docker/build-push-action@v4
         with:
-          context: .
-          file: src/FrontendWeb/Dockerfile
+          context: src/FrontendWeb
+          file: Dockerfile
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_REPOSITORY }}:${{ github.run_id }}

@@ -1,16 +1,13 @@
 # Build stage using the .NET SDK
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-RUN pwd
-RUN ls -alh
 
 # Copy csproj and restore dependencies
-COPY ["BackendApi/BackendApi.csproj", "BackendApi/"]
-RUN dotnet restore "BackendApi/BackendApi.csproj"
+COPY ["BackendApi.csproj", "."]
+RUN dotnet restore "BackendApi.csproj"
 
 # Copy remaining source code and build
 COPY . .
-WORKDIR "/src/BackendApi"
 RUN dotnet build "BackendApi.csproj" -c Release -o /app/build
 
 # Publish the application
