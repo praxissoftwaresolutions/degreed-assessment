@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GkUCO7g6Ru8=",
+  "dgSpecHash": "LMCcbixhhIE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\cls1\\gold_repos\\degreed-assessment\\BackendApi\\BackendApi.csproj",
+  "projectFilePath": "C:\\Users\\cls1\\gold_repos\\degreed-assessment\\src\\BackendApi\\BackendApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cls1\\.nuget\\packages\\azure.core\\1.53.0\\azure.core.1.53.0.nupkg.sha512",
     "C:\\Users\\cls1\\.nuget\\packages\\azure.identity\\1.21.0\\azure.identity.1.21.0.nupkg.sha512",
