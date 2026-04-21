@@ -39,7 +39,9 @@ jobs:
           context: src/BackendApi
           file: src/BackendApi/Dockerfile
           push: true
-          tags: ${{ env.REGISTRY }}/${{ env.API_IMAGE_REPOSITORY }}:${{ github.run_id }}
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.API_IMAGE_REPOSITORY }}:${{ github.run_id }}
+            ${{ env.REGISTRY }}/${{ env.API_IMAGE_REPOSITORY }}:latest
 
       - name: Build and push Web to ACR
         uses: docker/build-push-action@v4
@@ -47,4 +49,6 @@ jobs:
           context: src/FrontendWeb
           file: src/FrontendWeb/Dockerfile
           push: true
-          tags: ${{ env.REGISTRY }}/${{ env.FRONTEND_IMAGE_REPOSITORY }}:${{ github.run_id }}
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.FRONTEND_IMAGE_REPOSITORY }}:${{ github.run_id }}
+            ${{ env.REGISTRY }}/${{ env.FRONTEND_IMAGE_REPOSITORY }}:latest

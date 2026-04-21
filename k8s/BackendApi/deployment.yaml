@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  namespace: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+        azure.workload.identity/use: "true" # Triggers identity injection
+    spec:
+      serviceAccountName: api-service-account
+      containers:
+      - name: api
+        image: clspracticecontainerregistry-d0gmgkhtc4g2fcfm.azurecr.io/degreedassessment-api:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: ConnectionStrings__SqlDb
+          value: "Server=tcp:your-sql-server.database.windows.net,1433;Initial Catalog=your-db;Authentication=Active Directory Default;"
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "512Mi"
+          limits:
+            cpu: "500m"
+            memory: "1Gi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-service
+  namespace: api-backend
+spec:
+  type: ClusterIP
+  selector:
+    app: csharp-api
+  ports:
+  - port: 80
+    targetPort: 8080
