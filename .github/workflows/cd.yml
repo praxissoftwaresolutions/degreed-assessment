@@ -25,9 +25,12 @@ jobs:
           subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
 
       - name: Deploy via Command Invoke
+        # Use the 'working-directory' property to move into the k8s folder
+        working-directory: k8s
         run: |
           az aks command invoke \
             --resource-group ${{ vars.AKS_RESOURCE_GROUP }} \
             --name ${{ vars.AKS_CLUSTER_NAME }} \
-            --command "kubectl apply -f k8s/BackendApi/service-account.yaml -f k8s/BackendApi/service.yaml -f k8s/BackendApi/deployment.yaml -f k8s/FrontendWeb/service.yaml -f k8s/FrontendWeb/deployment.yaml" \
-            --file k8s/
+            --command "kubectl apply -f BackendApi/service-account.yaml -f BackendApi/service.yaml -f BackendApi/deployment.yaml -f FrontendWeb/service.yaml -f FrontendWeb/deployment.yaml" \
+            --file .
+
