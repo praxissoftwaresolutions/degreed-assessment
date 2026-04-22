@@ -28,5 +28,5 @@ app.MapGet("/", async (IHttpClientFactory clientFactory) =>
         return Results.Problem(ex.ToString());
     }
 });
-
+app.MapGet("/health", () => Results.Ok("Healthy"));
 app.Run();
