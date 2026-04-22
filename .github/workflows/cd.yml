@@ -27,7 +27,7 @@ jobs:
       - name: Deploy via Command Invoke
         run: |
           az aks command invoke \
-            --resource-group degreed_cls_assessment_cluster_group \
-            --name DegreedCluser \
+            --resource-group ${{ vars.AKS_RESOURCE_GROUP }} \
+            --name ${{ vars.AKS_CLUSTER_NAME }} \
             --command "kubectl apply -f k8s/BackendApi/service-account.yaml -f k8s/BackendApi/service.yaml -f k8s/BackendApi/deployment.yaml -f k8s/FrontendWeb/service.yaml -f k8s/FrontendWeb/deployment.yaml" \
             --file k8s/
