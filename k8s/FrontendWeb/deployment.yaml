@@ -20,7 +20,7 @@ spec:
         - containerPort: 8080
         env:
         - name: BACKEND_URL
-          value: "http://api-service.api.svc.cluster.local" # This should match the service name and port of your API service
+          value: "http://api-service.api" # This should match the service name and port of your API service
         resources:
           requests:
             cpu: "250m"
