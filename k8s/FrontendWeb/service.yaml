@@ -4,7 +4,8 @@ metadata:
   name: web-service
   namespace: web
   annotations:
-    service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: "/health"
+    # Use TCP instead of HTTP for the health check
+    service.beta.kubernetes.io/azure-load-balancer-health-probe-protocol: "Tcp"
 spec:
   type: LoadBalancer # Creates a Public IP for your demo
   selector:
