@@ -28,6 +28,8 @@ jobs:
         uses: azure/use-kubelogin@v1
         with:
           kubelogin-version: 'latest'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Add this line
 
       - name: Set AKS context
         uses: azure/aks-set-context@v3
