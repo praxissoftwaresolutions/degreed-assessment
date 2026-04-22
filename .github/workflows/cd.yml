@@ -43,6 +43,23 @@ jobs:
           pwd
           ls -R k8s/
 
+      - name: Get Runner IP
+        run: |
+          # Find the public IP of the GitHub Runner
+          RUNNER_IP=$(curl -s https://ipify.org)
+          echo "RUNNER_IP=$RUNNER_IP" >> $GITHUB_ENV
+
+      - name: Whitelist Runner IP in AKS
+        run: |
+          # Get existing ranges so we don't overwrite them
+          EXISTING_RANGES=$(az aks show -g ${{ vars.AKS_RESOURCE_GROUP }} -n ${{ vars.AKS_CLUSTER_NAME }} --query apiServerAccessProfile.authorizedIpRanges -o tsv | tr '\n' ',')
+          
+          # Add the current runner IP to the list
+          az aks update \
+            -g ${{ vars.AKS_RESOURCE_GROUP }} \
+            -n ${{ vars.AKS_CLUSTER_NAME }} \
+            --api-server-authorized-ip-ranges "${EXISTING_RANGES}${{ env.RUNNER_IP }}"
+
       - name: Deploy to AKS
         uses: azure/k8s-deploy@v4
         with:
@@ -52,4 +69,13 @@ jobs:
             k8s/BackendApi/service-account.yaml
             k8s/BackendApi/deployment.yaml
             k8s/FrontendWeb/deployment.yaml
+
+      - name: Remove Runner IP from Whitelist
+        if: always()
+        run: |
+          # This keeps your original authorized ranges and removes the temporary runner IP
+          CLEAN_RANGES=$(az aks show -g ${{ vars.AKS_RESOURCE_GROUP }} -n ${{ vars.AKS_CLUSTER_NAME }} --query apiServerAccessProfile.authorizedIpRanges -o tsv | tr '\n' ',' | sed "s/${{ env.RUNNER_IP }},//g" | sed "s/,${{ env.RUNNER_IP }}//g")
+          
+          az aks update -g ${{ vars.AKS_RESOURCE_GROUP }} -n ${{ vars.AKS_CLUSTER_NAME }} --api-server-authorized-ip-ranges "$CLEAN_RANGES"
+
             
