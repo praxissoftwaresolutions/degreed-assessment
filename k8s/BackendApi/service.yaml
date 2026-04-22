@@ -3,12 +3,16 @@ kind: Service
 metadata:
   name: api-service
   namespace: api
+  labels:
+    app.kubernetes.io/name: api
+    app.kubernetes.io/component: backend
+    tier: api
 spec:
-  type: LoadBalancer # Changed from ClusterIP for external access
+  type: ClusterIP
   selector:
-    app: api
+    app: api # CRITICAL: This must match the label in your API Deployment
   ports:
     - name: http
       protocol: TCP
-      port: 80
-      targetPort: 8080 # Matches EXPOSE 8080 in your Dockerfile
+      port: 80         # The port the Web App will call
+      targetPort: 8080 # The port your C# API container listens on
