@@ -1,5 +1,6 @@
 data "azurerm_client_config" "current" {}
 
+#### TODO: Modulize and move to separate files for better organization and readability
 #### ACR
 resource "azurerm_resource_group" "degreed-acr-rg" {
   name     = "degreed-acr-rg"
