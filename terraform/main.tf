@@ -253,6 +253,11 @@ resource "azurerm_kubernetes_cluster" "degreed-cluster" {
   workload_identity_enabled = true
   oidc_issuer_enabled       = true
 
+  api_server_access_profile {
+    authorized_ip_ranges                = ["73.99.108.173/32"]
+    virtual_network_integration_enabled = false
+  }
+
   azure_active_directory_role_based_access_control {
     admin_group_object_ids = []
     azure_rbac_enabled     = true
@@ -337,3 +342,5 @@ resource "azurerm_kubernetes_cluster" "degreed-cluster" {
     mode               = "Manual"
   }
 }
+
+#### TODO: Create Namespaces
