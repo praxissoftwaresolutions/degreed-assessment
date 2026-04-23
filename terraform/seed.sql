@@ -1,0 +1,22 @@
+INSERT INTO Quotes (Author, QuoteText)
+VALUES 
+('Mahatma Gandhi', 'Be the change that you wish to see in the world.'),
+('Eleanor Roosevelt', 'The future belongs to those who believe in the beauty of their dreams.'),
+('Steve Jobs', 'The only way to do great work is to love what you do.'),
+('Benjamin Franklin', 'Tell me and I forget. Teach me and I remember. Involve me and I learn.'),
+('Abraham Lincoln', 'In the end, it''s not the years in your life that count. It''s the life in your years.'),
+('Oprah Winfrey', 'If you look at what you have in life, you''ll always have more.'),
+('Mother Teresa', 'Spread love everywhere you go. Let no one ever come to you without leaving happier.'),
+('Anne Frank', 'Whoever is happy will make others happy too.'),
+('Thomas Edison', 'Many of life''s failures are people who did not realize how close they were to success when they gave up.'),
+('John Lennon', 'Life is what happens when you''re busy making other plans.'),
+('Mark Twain', 'The secret of getting ahead is getting started.'),
+('Robert Louis Stevenson', 'Don''t judge each day by the harvest you reap but by the seeds that you plant.'),
+('Henry Ford', 'Whether you think you can or you think you can''t, you''re right.'),
+('Leonardo da Vinci', 'Learning never exhausts the mind.'),
+('Lao Tzu', 'The journey of a thousand miles begins with one step.'),
+('Maya Angelou', 'You will face many defeats in life, but never let yourself be defeated.'),
+('Wayne Gretzky', 'You miss 100% of the shots you don''t take.'),
+('Vince Lombardi', 'It''s not whether you get knocked down, it''s whether you get up.'),
+('Charles Dickens', 'A loving heart is the truest wisdom.'),
+('Jim Rohn', 'Happiness is not by chance, but by choice.');
