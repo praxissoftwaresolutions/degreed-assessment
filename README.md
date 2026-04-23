@@ -20,10 +20,6 @@ degreed-assessment is a programming assignment repository created to demonstrate
           -- to create tables (Migrations)
           ALTER ROLE db_ddladmin ADD MEMBER [mid-api];
       GO
-
-
-Grant Permissions in SQL Server 
-The SQL Server won't recognize your identity by default. You must manually add your user (for local testing) and the AKS Identity (for the cluster) as users in the database. 
 - [ ] Write unit tests
 - [ ] Deploy application
 
