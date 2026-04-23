@@ -12,10 +12,8 @@ builder.Services.AddHttpClient("BackendClient", client =>
 
 var app = builder.Build();
 
-app.MapGet("/", () => Results.Ok("Healthy"));
-
 // This endpoint calls the backend to return a random quote from the database, demonstrating secure database access via a Private Endpoint and Azure AD authentication
-/* app.MapGet("/", async (IHttpClientFactory clientFactory) =>
+app.MapGet("/", async (IHttpClientFactory clientFactory) =>
 {
     // Create the client using the name registered above
     var client = clientFactory.CreateClient("BackendClient");
@@ -30,6 +28,6 @@ app.MapGet("/", () => Results.Ok("Healthy"));
         return Results.Problem(ex.ToString());
     }
 });
-*/
+
 app.MapGet("/health", () => Results.Ok("Healthy"));
 app.Run();
