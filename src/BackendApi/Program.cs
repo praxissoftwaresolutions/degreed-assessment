@@ -33,7 +33,7 @@ app.UseCors();
 // NOTE: Use the private FQDN (e.g. yourserver.database.windows.net) 
 // The AKS DNS will resolve this to your Private Endpoint's internal IP.
 // This string is safe for source control as it has no passwords
-string connectionString = "Server=tcp:degreed-data.database.windows.net,1433;Initial Catalog=degreed-data;Encrypt=True;Authentication=Active Directory Default;";
+string connectionString = "Server=tcp:degreed-sql-server.database.windows.net,1433;Initial Catalog=degreed-data;Encrypt=True;Authentication=Active Directory Default;";
 
 
 app.MapGet("/quote", async () =>
