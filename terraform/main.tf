@@ -27,6 +27,18 @@ resource "azurerm_user_assigned_identity" "github-actions-identity" {
   tags                = {}
 }
 
+# TODO: Configure the Federated Identity Credential
+/* resource "azuread_application_federated_identity_credential" "github-actions-fic" {
+  application_id = "/applications/${azurerm_user_assigned_identity.github-actions-identity.principal_id}"
+  display_name   = "githubaction"
+  description    = "Federated Identity Credentials for GitHub Actions to deploy Azure resources using Terraform"
+  audiences      = ["api://AzureADTokenExchange"]
+  issuer         = "https://token.actions.githubusercontent.com"
+  subject        = "repo:praxissoftwaresolutions/degreed-assessment:ref:refs/heads/main"
+
+  depends_on = [azurerm_user_assigned_identity.github-actions-identity]
+} */
+
 resource "azurerm_user_assigned_identity" "degreed-cluster-identity" {
   location            = azurerm_resource_group.degreed-identity-rg.location
   name                = "degreed-cluster-identity"
