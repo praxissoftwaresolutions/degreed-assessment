@@ -20,6 +20,13 @@ resource "azurerm_resource_group" "degreed-identity-rg" {
   location = "eastus"
 }
 
+resource "azurerm_user_assigned_identity" "res-0" {
+  location            = azurerm_resource_group.degreed-identity-rg.location
+  name                = "degreed-mid-api"
+  resource_group_name = azurerm_resource_group.degreed-identity-rg.name
+  tags                = {}
+}
+
 resource "azurerm_user_assigned_identity" "github-actions-identity" {
   location            = azurerm_resource_group.degreed-identity-rg.location
   name                = "github-actions-identity"
