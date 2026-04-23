@@ -23,7 +23,8 @@ spec:
         - containerPort: 8080
         env:
         - name: ConnectionStrings__SqlDb
-          value: "Server=tcp:degreed-data.database.windows.net,1433;Initial Catalog=degreed-data;Authentication=Active Directory Default;"
+          #value: "Server=tcp:degreed-data.database.windows.net,1433;Initial Catalog=degreed-data;Authentication=Active Directory Default;"
+          value: "Server=tcp:degreed-sql-server.database.windows.net,1433;Initial Catalog=degreed-data;Authentication=Active Directory Default;"
         resources:
           requests:
             cpu: "250m"
