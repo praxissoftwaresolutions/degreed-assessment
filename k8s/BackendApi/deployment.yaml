@@ -17,7 +17,8 @@ spec:
       serviceAccountName: api-service-account
       containers:
       - name: api
-        image: clspracticecontainerregistry-d0gmgkhtc4g2fcfm.azurecr.io/degreedassessment-api:latest
+        #image: clspracticecontainerregistry-d0gmgkhtc4g2fcfm.azurecr.io/degreedassessment-api:latest
+        image: degreedcontainerregistry.azurecr.io/degreedassessment-api:latest
         ports:
         - containerPort: 8080
         env:
