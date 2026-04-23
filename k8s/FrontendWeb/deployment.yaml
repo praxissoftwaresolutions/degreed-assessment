@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
       - name: web
-        image: clspracticecontainerregistry-d0gmgkhtc4g2fcfm.azurecr.io/degreedassessment-web:latest
+        #image: clspracticecontainerregistry-d0gmgkhtc4g2fcfm.azurecr.io/degreedassessment-web:latest
+        image: degreedcontainerregistry.azurecr.io/degreedassessment-web:latest
         ports:
         - containerPort: 8080
         env:
